@@ -48,15 +48,49 @@
             font-size: 18px;
             cursor: pointer;
         }
+
+    /* Checkbox and label styling */
+    .form-container .show-password {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+    }
+
+    .form-container .show-password label {
+        margin-left: 5px;
+        font-size: 14px;
+    }
+
     </style>
 </head>
 <body>
     <div class="form-container">
         <form action="/login" method="post">
             <input type="text" name="username" placeholder="Username" required>
-            <input type="password" name="password" placeholder="Password" required>
+            <input type="password" id="passwordField" name="password" placeholder="Password" required>
+            
+            <!-- Show/Hide Password Checkbox -->
+            <div class="show-password">
+                <input type="checkbox" id="showPasswordCheckbox" onclick="togglePassword()">
+                <label for="showPasswordCheckbox">Show Password</label>
+            </div>
+
             <button type="submit" class="red-button">Login</button>
         </form>
     </div>
+
+    <script>
+        // Function to toggle password visibility
+        function togglePassword() {
+            var passwordField = document.getElementById("passwordField");
+            var showPasswordCheckbox = document.getElementById("showPasswordCheckbox");
+            
+            if (showPasswordCheckbox.checked) {
+                passwordField.type = "text"; // Show password
+            } else {
+                passwordField.type = "password"; // Hide password
+            }
+        }
+    </script>
 </body>
 </html>
