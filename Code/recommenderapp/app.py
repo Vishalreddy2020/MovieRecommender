@@ -21,7 +21,6 @@ app = Flask(__name__)
 app.secret_key = "secret key"
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///users.db'
 CORS(app, resources={r"/*": {"origins": "*"}})
-
 db = SQLAlchemy(app)
 
 login_manager = LoginManager()
