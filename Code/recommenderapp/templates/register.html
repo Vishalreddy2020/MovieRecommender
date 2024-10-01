@@ -37,19 +37,66 @@
             font-size: 18px;
             cursor: pointer;
         }
+
+        /* Password validation styles */
+        .validation-message {
+            color: #ebe5e6;
+            font-size: 14px;
+        }
+
+        /* Animation for password field */
+        .input-animation {
+            animation: glow 0.8s ease-in-out infinite alternate;
+        }
+
+        @keyframes glow {
+            0% {
+                box-shadow: 0 0 5px #d9534f;
+            }
+            100% {
+                box-shadow: 0 0 20px #d9534f;
+            }
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <h2 style="color:#ebe5e6; font-size: 24px; font-weight: bold;">Register</h2>
-        <form action="/register" method="post">
-            <input type="text" name="username" placeholder="Username" required class="form-control">
-            <input type="password" name="password" placeholder="Password" required class="form-control">
-            <button type="submit" class="red-button">Register</button>
+        <form id="registerForm" action="/register" method="post">
+            <input type="text" name="username" placeholder="Username" required class="form-control" id="username">
+            <input type="password" name="password" placeholder="Password" required class="form-control" id="password">
+            <div class="validation-message" id="passwordMessage"></div>
+            <button type="submit" class="red-button" id="registerButton" disabled>Register</button>
         </form>
         <p style="color:#ebe5e6; font-size: 24px; font-weight: bold;">Already have an account? <a href="/login">Login here</a></p>
     </div>
+    
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script>
+        // Password validation function
+        function validatePassword() {
+            const password = document.getElementById('password').value;
+            const passwordMessage = document.getElementById('passwordMessage');
+            const registerButton = document.getElementById('registerButton');
+
+            // Regex for password validation
+            const passwordPattern = /^(?=.*[A-Z])(?=.*[!@#$%^&*])(?=.{8,})/;
+
+            // Check if password meets the criteria
+            if (!passwordPattern.test(password)) {
+                passwordMessage.innerHTML = 'Password must be at least 8 characters, contain one uppercase letter, and one special character.';
+                document.getElementById('password').classList.add('input-animation');
+                registerButton.disabled = true; // Disable the register button until valid
+            } else {
+                passwordMessage.innerHTML = 'Password is valid!';
+                document.getElementById('password').classList.remove('input-animation');
+                registerButton.disabled = false; // Enable the register button if valid
+            }
+        }
+
+        // Attach event listener to password field
+        document.getElementById('password').addEventListener('input', validatePassword);
+    </script>
 </body>
 </html>
