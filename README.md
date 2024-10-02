@@ -45,9 +45,10 @@ Your perfect movie is just a click away. Get started now and make every movie ni
 
 Testing how good the Movie Recommender is :
 
-1. Build a new feature that exhibits diversity across genres, casting choices, and production styles.
-2. An email to be sent to users with the list of movies recommended to them
-3. The user accounts can keep a record of the feedback given by them (liked, disliked or yet to watch).
+1. Enhanced Recommendation Algorithm: Use machine learning to personalize movie suggestions based on user ratings and feedback, improving accuracy over time.
+2. User Community Features: Add social elements like reviews, comments, and recommendations based on what friends or community members are watching.
+3. Integration with External APIs: Connect with movie databases like IMDb or TMDb to get real-time movie details, ratings, and trending films for a better user experience.
+4. Watchlist Feature: Allow users to create a personalized watchlist by saving movies they are interested in.
 
 
 Note: Our system can be virtually tested through Github Actions inbuilt feature of build and test queries using python.
@@ -57,7 +58,7 @@ Make sure you taste your own medicine first and take into account other peoples 
 
 ## Video ▶️ 
 
-[![Watch the video](https://markdown-videos-api.jorgenkh.no/youtube/303Q73iKKPw)](https://youtu.be/303Q73iKKPw)
+[![Watch the video]]([https://youtu.be/303Q73iKKPw](https://www.youtube.com/watch?v=Ne-ZXCYBBVA))
 
 
 
@@ -72,6 +73,15 @@ Below working displays the system also evaluates movie attributes such as genre,
 - The users can directly watch the trailer of any movie recommended to them. 
 - Furthermore, recommender systems often employ a feedback loop, where users' interactions and feedback help refine the recommendations over time, ensuring that the suggestions remain relevant.
 - The users can register and log in to their accounts to keep a history of the movies recommended for them.
+
+
+## New Features
+1. Register Page: Enhanced with password validation, ensuring it includes characters, numbers, and special characters.
+2. Loading Spinner: Implemented a loading spinner between the predict and recommendation process for a smoother user experience.
+3. Star-Based Rating System: Added a 5-star rating system for users to rate movies they’ve already watched.
+4. Feedback Functionality: Enabled feedback options only when users select an option, ensuring interaction is required.
+5. History Feature: The history page now displays only the movies for which users provided feedback.
+6. Watchlist Feature: Allow users to create a personalized watchlist by saving movies they are interested in.
 
 
 
